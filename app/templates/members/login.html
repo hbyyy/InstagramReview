@@ -39,9 +39,9 @@
                             {{ field }}
                             {% if field.errors %}
                                 <ul class="list-unstyled text-danger">
-                                {% for error in field.errors %}
-                                    <li>{{ error }}</li>
-                                {% endfor %}
+                                    {% for error in field.errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
                                 </ul>
                             {% endif %}
                         </div>
@@ -58,7 +58,7 @@
 
             <div class="card text-center p-4 mt-3 mb-3">
                 <span>계정이 없으신가요?</span>
-                <a href="{% url 'index' %}">회원가입</a>
+                <a href="{% url 'signup'%}">회원가입</a>
 
 
             </div>
