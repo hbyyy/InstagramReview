@@ -6,6 +6,10 @@ from posts.models import Post, PostLike, PostImage
 
 
 def post_list(request):
+    """
+    # URL = /posts/
+    # template: templates/posts/post-list.html
+    """
     # URL = /posts/
     # template: templates/posts/post-list.html
     posts = Post.objects.order_by('-pk')
@@ -21,9 +25,6 @@ def post_like(request, pk):
     1. Postlike를 생성한다
     2. 만약 해당 객체가 이미 있다면, 삭제한다.
     3. posts:post_list로 redirect한다.
-    :param request:
-    :param pk:
-    :return:
     """
 
     post = Post.objects.get(pk=pk)
@@ -37,16 +38,6 @@ def post_like(request, pk):
         PostLike.objects.create(post=post, user=request.user)
 
     return redirect('posts:post_list')
-
-    # try:
-    #     like1 = PostLike.objects.get(post=post, user=request.user)
-    #     like1.delete()
-    #
-    #
-    # except PostLike.DoesNotExist:
-    #     like1 = PostLike.objects.create(post=post, user=request.user)
-    #
-    # return redirect('posts:post_list')
 
 
 def post_create(request):

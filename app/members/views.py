@@ -1,10 +1,7 @@
 from django.contrib.auth import login, logout, get_user_model
 from django.shortcuts import render, redirect
 
-# 장고 기본유저나 Custom
 from members.forms import LoginForm, SignupForm
-# Create your views here.
-from members.models import User
 
 User = get_user_model()
 
